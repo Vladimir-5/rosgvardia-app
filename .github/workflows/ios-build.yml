@@ -641,15 +641,16 @@ jobs:
           key: pods-${{ runner.os }}-${{ hashFiles(format('{0}/Podfile.lock', steps.params.outputs.ios_path)) }}
           restore-keys: |
             pods-${{ runner.os }}-
-      - name: Prepare Cordova iOS
+            - name: Prepare Cordova iOS
         env:
           IOS_PATH: ${{ steps.params.outputs.ios_path }}
         run: |
           set -e
-          echo "=== Installing Cordova CLI ==="
-          npm install -g cordova
+          echo "=== Installing Cordova CLI and project dependencies ==="
+          npm install
+          npm install cordova cordova-ios cordova-common cordova-lib
           echo "=== Running cordova prepare ios ==="
-          cordova prepare ios
+          npx cordova prepare ios
           echo "=== Checking www folder ==="
           ls -la "$IOS_PATH/www" || (echo "::error::platforms/ios/www not found after cordova prepare" && exit 1)
           echo "=== www is ready ==="
