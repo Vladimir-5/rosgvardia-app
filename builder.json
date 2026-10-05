@@ -1,0 +1,21 @@
+{
+  "project": "rosgvardia-app",
+  "platform": "ios",
+  "github": {
+    "owner": "Vladimir-5",
+    "repo": "rosgvardia-app"
+  },
+  "provider": "github",
+  "codemagic": {},
+  "bitrise": {},
+  "ios": {
+    "path": "platforms/ios",
+    "bundleId": "com.rosgvardia.app"
+  },
+  "flutter": {
+    "watch": {}
+  },
+  "reactNative": {},
+  "kmp": {},
+  "mobai": {}
+}
