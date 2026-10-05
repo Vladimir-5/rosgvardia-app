@@ -641,7 +641,7 @@ jobs:
           key: pods-${{ runner.os }}-${{ hashFiles(format('{0}/Podfile.lock', steps.params.outputs.ios_path)) }}
           restore-keys: |
             pods-${{ runner.os }}-
-            - name: Prepare Cordova iOS
+      - name: Prepare Cordova iOS
         env:
           IOS_PATH: ${{ steps.params.outputs.ios_path }}
         run: |
